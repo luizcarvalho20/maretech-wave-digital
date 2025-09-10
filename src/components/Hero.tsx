@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import heroImage from '@/assets/hero-bg.jpg';
+import heroImage from '@/assets/mare-tech-bg.jpg';
 
 const Hero = () => {
   const handleWhatsAppClick = () => {
@@ -11,23 +11,24 @@ const Hero = () => {
       id="inicio"
       className="min-h-screen relative flex items-center justify-center overflow-hidden"
     >
-      {/* Background with gradient overlay */}
+      {/* Background with gradient overlay and fadeout */}
       <div className="absolute inset-0 bg-gradient-hero">
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-30 animate-fade-in"
           style={{
             backgroundImage: `url(${heroImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-transparent to-background/20" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-display font-semibold mb-6 leading-tight">
             <span className="text-gradient-gold">Automação e Tecnologia</span>
             <br />
             <span className="text-foreground">para impulsionar o seu negócio</span>

@@ -18,7 +18,7 @@ const Contact = () => {
     <section id="contato" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient-gold mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-semibold text-gradient-gold mb-4">
             Vamos Conversar?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -73,7 +73,7 @@ const Contact = () => {
           {/* CTA Section */}
           <div className="text-center lg:text-left">
             <div className="bg-gradient-card p-8 rounded-2xl border border-border">
-              <h3 className="text-2xl font-bold text-gold mb-4">
+              <h3 className="text-2xl font-display font-medium text-gold mb-4">
                 Pronto para transformar seu negócio?
               </h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">

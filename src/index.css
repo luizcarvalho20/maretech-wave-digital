@@ -130,6 +130,7 @@ All colors MUST be HSL. Elegant purple + gold palette.
 
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: 'Source Sans Pro', system-ui, sans-serif;
   }
 }
 
