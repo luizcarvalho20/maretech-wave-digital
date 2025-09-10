@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Maré Tech Design System - Modern Tech Agency
+All colors MUST be HSL. Elegant purple + gold palette.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* Core Brand Colors */
+    --background: 260 60% 8%;
+    --foreground: 0 0% 95%;
+    
+    /* Surface Colors */
+    --card: 260 50% 12%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 260 50% 12%;
+    --popover-foreground: 0 0% 95%;
+    
+    /* Brand Purple Scale */
+    --primary: 260 60% 15%;
+    --primary-foreground: 0 0% 98%;
+    
+    --primary-dark: 260 70% 10%;
+    --primary-medium: 260 50% 25%;
+    --primary-light: 260 40% 35%;
+    
+    /* Gold Accent System */
+    --gold: 45 90% 65%;
+    --gold-muted: 45 70% 55%;
+    --gold-dark: 45 80% 50%;
+    
+    /* Semantic Colors */
+    --secondary: 260 50% 25%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 260 30% 20%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 45 90% 65%;
+    --accent-foreground: 260 60% 15%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Interactive Elements */
+    --border: 260 40% 20%;
+    --input: 260 40% 20%;
+    --ring: 45 90% 65%;
+    
+    /* Design Tokens */
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--primary-medium)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-muted)));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(var(--primary-dark) / 0.4);
+    --shadow-gold: 0 0 30px hsl(var(--gold) / 0.2);
+    --shadow-card: 0 8px 25px -5px hsl(var(--primary-dark) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +129,86 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer base {
+  /* Custom Animation Classes */
+  .animate-fade-in {
+    opacity: 0;
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Loading states */
+  .loading {
+    opacity: 0;
+    animation: fade-in 0.3s ease-out 0.1s forwards;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px hsl(var(--gold) / 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.6);
   }
 }
